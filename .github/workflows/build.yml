@@ -36,8 +36,6 @@ jobs:
      steps:
       - name: docker pull image
         run: docker pull zaidhere/swiggy-clone:latest
-      - name: Image scan
-        run: trivy image zaidhere/swiggy-clone:latest > trivyimagedeploy.txt
       - name: Deploy to container
         run: docker run -d --name swiggy-clone -p 3000:3000 zaidhere/swiggy-clone:latest
       - name: Update kubeconfig
